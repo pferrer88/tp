@@ -82,29 +82,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "96ec908e77a095e26b87c369045e52c429b560c5d965f507c99ca3f0fa7cc1e8acfeeac1492b37c41cf1e628d205e4d161813d1265b8ddc61f502f08bb4782fe"
-
-  # ==> Configuration for :invitable
-  # The period the generated invitation token is valid, after
-  # this period, the invited resource won't be able to accept the invitation.
-  # When invite_for is 0 (the default), the invitation won't expire.
-  # config.invite_for = 2.weeks
-
-  # Number of invitations users can send.
-  # If invitation_limit is nil, users can send unlimited invitations.
-  # If invitation_limit is 0, users can't send invitations.
-  # If invitation_limit n > 0, users can send n invitations.
-  # Default: nil
-  # config.invitation_limit = 5
-
-  # The key to be used to check existing users when sending an invitation
-  # and the regexp used to test it when validate_on_invite is not set.
-  # config.invite_key = {:email => /A[^@]+@[^@]+z/}
-  # config.invite_key = {:email => /A[^@]+@[^@]+z/, :username => nil}
-
-  # Flag that force a record to be valid before being actually invited
-  # Default: false
-  # config.validate_on_invite = true
+  # config.pepper = "da2f756ebddda8b5bd5e9f2864456677ad61db1b195d7debb0a0d0ff0f329b7c2f54afec6e3275d2fe04e804648d6db843f61cd6622d4310efb2f31ede72af39"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -222,7 +200,7 @@ Devise.setup do |config|
   # config.navigational_formats = ["*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get # had to change this from delete for it to work with a bootstrap dropdown
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

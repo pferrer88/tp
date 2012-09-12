@@ -1,10 +1,11 @@
 @import "twitter/bootstrap/bootstrap";
-body { padding-top: 60px; }
 body { 
-	padding-top: 60px;
+	padding-bottom: 60px;
+	background-color: darken(white, 2%);
+/*	color: white;*/
 }
 
-@import "twitter/bootstrap/responsive";
+/*@import "twitter/bootstrap/responsive";*/
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -31,3 +32,53 @@ body {
 //
 // Example:
 // @linkColor: #ff0000;
+@navbarBackgroundHighlight: darken(white, "75");
+@navbarBackground: darken(white, "80");
+@navbarLinkColor:	darken(white, "10");
+@navbarLinkColorHover: darken(white, "5");
+@navbarLinkColorActive:	@navbarLinkColorHover	;
+@navbarLinkBackgroundHover:	darken(white, "85");
+@navbarLinkBackgroundActive:	darken(white, "85");
+@navbarBrandBackgroundHover:	darken(white, "85");
+@navbarBrandBackgroundActive:	darken(white, "85");
+
+/*@baseFontSize: 12px;*/
+
+.container {
+	margin-left: 20px;
+}
+
+.navbar{
+	
+	.nav{
+		margin: 0px 0px 0px 0px;
+	}
+	
+	li{	
+		a{
+			padding: 10px 10px 10px;
+		}	
+		i{
+			font-size: 18px;
+			width: auto;
+			text-shadow: -1px 1px 1px #000000;
+			filter: dropshadow(color=#000000, offx=-1, offy=1);
+		}
+	} //li
+	
+	.divider-vertical {
+		margin: 0 0px;
+	}
+}//navbar
+#logo{
+	padding:5px;
+	.size(70px, 245px);
+	background: url(tunebg.png) no-repeat -105px -75px;
+	position: absolute;
+	right: 0px;
+}
+
+/*.alert{
+	position: absolute;
+	bottom: 50px;
+}*/
