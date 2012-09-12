@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @artist.name
+%p
+  %b Info:
+  = @artist.info
+%p
+  %b Origin:
+  = @artist.origin
+
+= link_to 'Edit', edit_artist_path(@artist)
+\|
+= link_to 'Back', artists_path

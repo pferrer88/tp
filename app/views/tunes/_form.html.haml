@@ -1,0 +1,14 @@
+= simple_form_for(@tune) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user, :as => :hidden
+    = f.association :artist, :as => :hidden
+    = f.association :album, :as => :hidden
+    = f.input :remote_id, :as => :hidden
+    = f.input :name, :as => :hidden
+    = f.input :year, :as => :hidden
+    = f.input :time, :as => :hidden
+
+  .form-actions
+    = f.button :submit, "Post"

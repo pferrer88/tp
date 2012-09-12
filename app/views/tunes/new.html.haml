@@ -1,0 +1,12 @@
+%h1 Browse Tunes
+
+= form_tag '/sc' ,:id => "sc_search",:method => :get, :remote => true, :class => "form-search" do
+	.input-append
+		= search_field_tag 'q', nil, :placeholder => 'Search Soundcloud...'
+		= submit_tag "Search", :class => "btn", :id => "sc_btn" ,"data-loading-text" => "Loading..."
+	
+#sc_results
+
+= render 'form'
+
+= link_to 'Back', tunes_path

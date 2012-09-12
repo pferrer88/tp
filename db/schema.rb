@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911203329) do
+ActiveRecord::Schema.define(:version => 20120912135256) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.string   "version"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.text     "info"
+    t.string   "origin"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "follows", :force => true do |t|
     t.string   "follower_type"
@@ -23,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20120911203329) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.string   "liker_type"
@@ -46,6 +68,15 @@ ActiveRecord::Schema.define(:version => 20120911203329) do
   add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "fk_mentionables"
   add_index "mentions", ["mentioner_id", "mentioner_type"], :name => "fk_mentions"
 
+  create_table "playlists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "playlists", ["user_id"], :name => "index_playlists_on_user_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -56,6 +87,42 @@ ActiveRecord::Schema.define(:version => 20120911203329) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "tune_genres", :force => true do |t|
+    t.integer  "tune_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tune_genres", ["genre_id"], :name => "index_tune_genres_on_genre_id"
+  add_index "tune_genres", ["tune_id"], :name => "index_tune_genres_on_tune_id"
+
+  create_table "tune_playlists", :force => true do |t|
+    t.integer  "tune_id"
+    t.integer  "playlist_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tune_playlists", ["playlist_id"], :name => "index_tune_playlists_on_playlist_id"
+  add_index "tune_playlists", ["tune_id"], :name => "index_tune_playlists_on_tune_id"
+
+  create_table "tunes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.integer  "album_id"
+    t.string   "remote_id"
+    t.string   "name"
+    t.integer  "year"
+    t.integer  "time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tunes", ["album_id"], :name => "index_tunes_on_album_id"
+  add_index "tunes", ["artist_id"], :name => "index_tunes_on_artist_id"
+  add_index "tunes", ["user_id"], :name => "index_tunes_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false

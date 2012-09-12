@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @tune.user
+%p
+  %b Artist:
+  = @tune.artist
+%p
+  %b Album:
+  = @tune.album
+%p
+  %b Remote:
+  = @tune.remote_id
+%p
+  %b Name:
+  = @tune.name
+%p
+  %b Year:
+  = @tune.year
+%p
+  %b Time:
+  = @tune.time
+
+= link_to 'Edit', edit_tune_path(@tune)
+\|
+= link_to 'Back', tunes_path

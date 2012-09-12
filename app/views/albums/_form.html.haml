@@ -1,0 +1,10 @@
+= simple_form_for(@album) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :year
+    = f.input :version
+
+  .form-actions
+    = f.button :submit

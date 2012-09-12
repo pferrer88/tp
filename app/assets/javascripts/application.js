@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+jQuery(function($) {
+	
+  var showLoading = function() { $("#sc_btn").button('loading') };
+	var removeLoading = function() { $("#sc_btn").button('reset') };
+
+	$("#sc_btn").click(showLoading);
+	
+	console.log("hello console");
+	//   $("#sc_search")
+	//     .bind("ajax:loading",  showLoading)
+	//     .bind("ajax:complete", removeLoading);
+	//     .bind("ajax:success", function(event, data, status, xhr) {
+	//       $("#response").html(data);
+	//     });
+});

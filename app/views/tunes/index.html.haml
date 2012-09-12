@@ -1,0 +1,31 @@
+%h1 Listing tunes
+
+%table
+  %tr
+    %th User
+    %th Artist
+    %th Album
+    %th Remote
+    %th Name
+    %th Year
+    %th Time
+    %th
+    %th
+    %th
+
+  - @tunes.each do |tune|
+    %tr
+      %td= tune.user
+      %td= tune.artist
+      %td= tune.album
+      %td= tune.remote_id
+      %td= tune.name
+      %td= tune.year
+      %td= tune.time
+      %td= link_to 'Show', tune
+      %td= link_to 'Edit', edit_tune_path(tune)
+      %td= link_to 'Destroy', tune, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tune', new_tune_path

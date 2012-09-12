@@ -13,10 +13,9 @@
 		= csrf_meta_tags
 		= yield(:head)
 	%body
-		/ #logo.well
+		#logo.well
 		#main{:role => "main"}
 			.container-fluid
-				/ = render 'layouts/messages'
 				.content
 					.row-fluid
 						.span12

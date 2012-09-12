@@ -1,0 +1,15 @@
+/ = @results
+%table.table-hover
+	/ %caption SoundCloud Results
+	/ %thead
+	/ 	%tr
+	/ 		%th Name
+	%tbody
+	/ - for t in @tracks
+	/ 	%tr
+	/ 		%td= t.title
+	- for r in @results
+		%tr
+			%td
+				%iframe{:frameborder => "yes", :height => "60px", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{r}&auto_play=false&show_artwork=false&show_comments=false&liking=false&buying=false&color=ff7700", :width => "100%"}
+				
