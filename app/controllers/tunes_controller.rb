@@ -95,7 +95,7 @@ class TunesController < ApplicationController
     # try to get a track
     
     begin
-      @tracks = client.get('/tracks', :q => params[:q], :limit => 5)
+      @tracks = client.get('/tracks', :q => params[:q], :limit => 8)
       @results = []
       for t in @tracks
         if t.streamable

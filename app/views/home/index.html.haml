@@ -1,6 +1,6 @@
-%h3 Home
+%h2 Home
+%hr
+%table.table-striped
 - @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
-
-= link_to('Logout', destroy_user_session_path, :method=>:delete)
+	%tr
+		%td= link_to user.name, user
