@@ -5,7 +5,7 @@ body {
 /*	color: white;*/
 }
 
-/*@import "twitter/bootstrap/responsive";*/
+@import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -45,7 +45,7 @@ body {
 /*@baseFontSize: 12px;*/
 
 .container {
-	margin-left: 20px;
+	margin-left: 10px;
 }
 
 .navbar{
@@ -69,7 +69,14 @@ body {
 	.divider-vertical {
 		margin: 0 0px;
 	}
+	
+	.navbar-inner{
+		padding:0px;
+	}
+	
 }//navbar
+
+
 #logo{
 	margin:10px;
 	padding:5px;
@@ -80,8 +87,46 @@ body {
 	z-index: -99;
 }
 
+.tune_info {
+	position: absolute;
+	left: 75px;
+	margin-top: 15px;
+	background-color: white;
+	padding: 5px;
+	width: 230px;
+}
+
+
 .alert{
 /*	position: absolute;*/
 	margin-top:10px;
 	width: 50%;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 979px) { 
+	
+	.container-fluid {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	.modal.fade.in{
+		top: 10%;
+	}
+
+	.navbar-fixed-bottom{
+		position: fixed;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+}
+
+@media (max-width: 767px) { 
+	
+	body {
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+
 }

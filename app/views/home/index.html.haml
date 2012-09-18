@@ -1,6 +1,12 @@
 %h2 Home
 %hr
 %table.table-striped
-- @users.each do |user|
-	%tr
-		%td= link_to user.name, user
+	- current_user.tunes.order("created_at DESC").each do |tune|
+		%tr
+			%td
+				.tune-post
+					.tune_info
+						%b= tune.name
+						= tune.description
+					%iframe{:frameborder => "yes", :height => "145px", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{tune.remote_id}&auto_play=false&sharing=false&show_playcount=false&download=true&show_user=false&show_artwork=false&show_comments=false&liking=false&buying=false&color=ff7700", :width => "100%"}
+				

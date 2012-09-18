@@ -5,5 +5,5 @@ class Tune < ActiveRecord::Base
   has_many 		:playlists
   has_many 		:genres
   has_one			:pic
-  attr_accessible :name, :remote_id, :time, :year
+  attr_accessible :name, :remote_id, :time, :year, :user_id, :artist_id, :album_id, :description 
 end

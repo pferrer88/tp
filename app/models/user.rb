@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  rolify
   
+  has_many  :tunes
+  
+  rolify
   # socialization setup
   acts_as_follower
   acts_as_followable

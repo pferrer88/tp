@@ -11,3 +11,8 @@ user = User.create! :name => 'Pedro F', :email => 'pferrer88@gmail.com', :passwo
 # user.confirm!
 puts 'New user created: ' << user.name
 user.add_role :admin
+
+user = User.create! :name => 'Tomas Dildo', :email => 'tomas.balza@gmail.com', :password => 'abc123', :password_confirmation => 'abc123'
+# user.confirm!
+puts 'New user created: ' << user.name
+user.add_role :admin

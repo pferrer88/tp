@@ -1,4 +1,4 @@
-%h2 Browse Tunes
+%h2 Search
 %hr
 = form_tag '/sc' ,:id => "sc_search",:method => :get, :remote => true do
 	.input-append
@@ -7,6 +7,16 @@
 	
 #sc_results
 
-/ = render 'form'
+
+#post_modal.modal.hide.fade
+	.modal-header
+		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+		%h3 Post a Tune
+	.modal-body
+		= render 'form'
+	/ .modal-footer
+	/		%a.btn{:href => "#"} Close
+	/		%a.btn.btn-primary{:href => "#"} Save changes
+
 
 / = link_to 'Back', tunes_path

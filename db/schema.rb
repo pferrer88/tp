@@ -114,10 +114,12 @@ ActiveRecord::Schema.define(:version => 20120912135256) do
     t.integer  "album_id"
     t.string   "remote_id"
     t.string   "name"
+    t.text     "description"
+    t.string   "status"
     t.integer  "year"
     t.integer  "time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "tunes", ["album_id"], :name => "index_tunes_on_album_id"

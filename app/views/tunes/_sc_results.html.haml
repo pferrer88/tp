@@ -11,5 +11,6 @@
 	- for r in @results
 		%tr
 			%td
-				%iframe{:frameborder => "yes", :height => "60px", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{r}&auto_play=false&show_artwork=false&show_comments=false&liking=false&buying=false&color=ff7700", :width => "100%"}
-				
+				/ = r[:genre] if r[:genre]
+				%iframe{:frameborder => "yes", :height => "55px", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{r[:uri]}&auto_play=false&download=false&show_user=false&show_artwork=false&show_comments=false&liking=false&buying=false&color=ff7700", :width => "100%"}
+				%button.post_btn.btn.btn-primary{:type => "button", :data => {:uri => r[:uri], :title => r[:title] , :genre => r[:genre] }, "data-target" => "#post_modal", "data-toggle" => "modal" } POST

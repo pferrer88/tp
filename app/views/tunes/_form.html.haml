@@ -1,14 +1,15 @@
 = simple_form_for(@tune) do |f|
-  = f.error_notification
+	= f.error_notification
 
-  .form-inputs
-    = f.association :user, :as => :hidden
-    = f.association :artist, :as => :hidden
-    = f.association :album, :as => :hidden
-    = f.input :remote_id, :as => :hidden
-    = f.input :name, :as => :hidden
-    = f.input :year, :as => :hidden
-    = f.input :time, :as => :hidden
+	.form-inputs
+		= f.association :user, :input_html => {:value => current_user.id}, :as => :hidden
+		= f.association :artist, :as => :hidden
+		= f.association :album, :as => :hidden
+		= f.input :remote_id, :as => :hidden
+		= f.input :name#, :as => :hidden
+		= f.input :description, :as => :hidden
+		= f.input :year, :as => :hidden
+		= f.input :time, :as => :hidden
 
-  .form-actions
-    = f.button :submit, "Post"
+	.modal-footer
+		= f.button :submit, "Post"

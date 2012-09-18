@@ -6,6 +6,8 @@ class CreateTunes < ActiveRecord::Migration
       t.references :album
       t.string :remote_id
       t.string :name
+      t.text :description
+      t.string :status
       t.integer :year
       t.integer :time
 

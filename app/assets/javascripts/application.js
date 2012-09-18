@@ -30,3 +30,8 @@ jQuery(function($) {
 	//       $("#response").html(data);
 	//     });
 });
+
+function set_tune_vars()
+{
+	alert("HELLO FUCKER");
+}

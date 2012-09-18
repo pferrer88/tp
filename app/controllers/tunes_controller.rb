@@ -47,7 +47,7 @@ class TunesController < ApplicationController
 
     respond_to do |format|
       if @tune.save
-        format.html { redirect_to @tune, notice: 'Tune was successfully created.' }
+        format.html { redirect_to root_path notice: 'Tune was successfully created.' }
         format.json { render json: @tune, status: :created, location: @tune }
       else
         format.html { render action: "new" }
@@ -101,8 +101,9 @@ class TunesController < ApplicationController
         if t.streamable
           # embed = client.get('/oembed', :url => t.permalink_url)
           # @results.push embed['html']
-          @results.push t.uri
-          puts "getting"
+          vars = {:uri => t.uri, :title => t.title, :genre => t.genre, :duration => t.duration, :stream_url => t.stream_url}
+          @results.push vars
+          puts "getting info variables"
         end
       end
       puts @results
