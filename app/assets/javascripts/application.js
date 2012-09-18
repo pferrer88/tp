@@ -13,9 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.pjax
 //= require_tree .
 
 jQuery(function($) {
+	
+	$('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('[data-pjax-container]');
 	
   var showLoading = function() { $("#sc_btn").button('loading') };
 	var removeLoading = function() { $("#sc_btn").button('reset') };
@@ -31,7 +34,8 @@ jQuery(function($) {
 	//     });
 });
 
-function set_tune_vars()
-{
-	alert("HELLO FUCKER");
-}
+// function set_tune_vars()
+// {
+// 	alert("HELLO FUCKER");
+// }
+

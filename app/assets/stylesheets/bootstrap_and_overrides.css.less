@@ -1,5 +1,5 @@
 @import "twitter/bootstrap/bootstrap";
-body { 
+body {
 	padding-bottom: 60px;
 	background-color: darken(white, 2%);
 /*	color: white;*/
@@ -103,15 +103,24 @@ body {
 	width: 50%;
 }
 
+.modal.fade.in{
+	top: 10%;
+}
+
+
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 979px) { 
-	
+	body {
+		padding-top: 10px;
+	}
 	.container-fluid {
 		padding-right: 20px;
 		padding-left: 20px;
 	}
-	.modal.fade.in{
-		top: 10%;
+	.navbar-inner .container-fluid{
+		padding-left: 0px;
+		padding-left: 0px;
 	}
 
 	.navbar-fixed-bottom{

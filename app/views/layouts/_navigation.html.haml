@@ -1,8 +1,7 @@
-
-= link_to root_path, :class => "brand", :title => "Home" do
-	%i.icon-large.icon-home
-
 %ul.nav
+	%li
+		= link_to root_path, :class => "brand", :title => "Home" do
+			%i.icon-large.icon-home
 	%li.divider-vertical
 	%li
 		= link_to new_tune_path, :title => "Post a tune" do
@@ -11,10 +10,10 @@
 	/ %li
 	/ 	= link_to root_path, :title => "Home" do
 	/ 		%i.icon-large.icon-star
-	%li.divider-vertical
-	%li
-		= link_to root_path, :title => "Home" do
-			%i.icon-large.icon-heart
+	/ %li.divider-vertical
+	/ %li
+	/ 	= link_to root_path, :title => "Home" do
+	/ 		%i.icon-large.icon-heart
 	%li.divider-vertical
 	%li.dropdown		
 		%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
