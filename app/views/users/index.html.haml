@@ -1,6 +1,9 @@
 %h3 Users
 %ul.users
-  - @users.each do |user|
-    %li
-      = link_to user.name, user
-      signed up #{user.created_at.to_date}
+	- @users.each do |user|
+		- @user=user
+		%li
+			%h5
+				= link_to user.name, user
+				#follow{:style => "display:inline;"}
+					= render "follow"

@@ -1,7 +1,8 @@
-%h2= @user.name
+%h2
+	= @user.name
+	#follow
+		= render "follow"
 %hr
-%p
-	Email: #{@user.email if @user.email}
+%table
+	= render @tunes
 
-#follow
-	= render "follow"

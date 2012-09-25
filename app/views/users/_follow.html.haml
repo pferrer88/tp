@@ -1,6 +1,6 @@
 - if (current_user != @user)
 	- if (!current_user.follows?(@user))
-		= link_to "Follow", follow_user_path(@user), :method => :post ,:remote => true, :class => "btn btn-primary"
+		= link_to "Follow", follow_user_path(@user), :method => :post ,:remote => true, :class => "btn btn-primary btn-mini"
 	- else
-		= link_to "Unfollow", unfollow_user_path(@user), :method => :post ,:remote => true, :class => "btn btn-danger"
+		= link_to "Unfollow", unfollow_user_path(@user), :method => :post ,:remote => true, :class => "btn btn-danger btn-mini"
 		
