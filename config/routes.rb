@@ -19,7 +19,13 @@ Tp::Application.routes.draw do
   
   devise_for :users
   
-  resources :users, :only => [:show, :index]
+  resources :users, :only => [:show, :index] do
+    member do
+        post :follow
+        post :unfollow
+    end  
+  end
+  
   
   
 
