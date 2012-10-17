@@ -4,19 +4,12 @@
 	.input-append
 		= search_field_tag 'q', nil, :placeholder => 'Search Soundcloud...'
 		= submit_tag "Search", :class => "btn", :id => "sc_btn" ,"data-loading-text" => "Loading..."
-	
+
+#form	
+
 #sc_results
 
 
-#post_modal.modal.hide.fade
-	.modal-header
-		%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-		%h3 Post a Tune
-	.modal-body
-		= render 'form'
-	/ .modal-footer
-	/		%a.btn{:href => "#"} Close
-	/		%a.btn.btn-primary{:href => "#"} Save changes
 
 
 / = link_to 'Back', tunes_path

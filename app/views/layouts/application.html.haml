@@ -28,5 +28,14 @@
 					= render 'layouts/navigation'
 			/ ! end of .container
 		/ ! end of #main
+		#le_modal.modal.hide.fade
+			.modal-header
+				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+				%h3 Modal Box
+			.modal-body
+			
+			/ .modal-footer
+			/		%a.btn{:href => "#"} Close
+			/		%a.btn.btn-primary{:href => "#"} Save changes
 
 

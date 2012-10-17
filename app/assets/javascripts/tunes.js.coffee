@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-
+  $('#tune_playlist_tokens').tokenInput '/playlists.json'
+    theme: 'facebook'
+    prePopulate: $('#tune_playlist_tokens').data('load')

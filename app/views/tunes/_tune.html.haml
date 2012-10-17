@@ -3,5 +3,6 @@
 		.tune-post
 			.tune_info
 				%b= tune.name
-				= tune.description
+				- tune.playlists.each do |p|
+					= link_to p.name, p
 			%iframe{:frameborder => "yes", :height => "145px", :scrolling => "no", :src => "http://w.soundcloud.com/player/?url=#{tune.remote_id}&auto_play=false&sharing=false&show_playcount=false&download=true&show_user=false&show_artwork=false&show_comments=false&liking=false&buying=false&color=ff7700", :width => "100%"}

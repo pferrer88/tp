@@ -2,19 +2,20 @@ class PlaylistsController < ApplicationController
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = Playlist.all
+    @playlists = Playlist.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @playlists }
-    end
+      format.json { render json: @playlists.tokens(params[:q]) }    
+      end
   end
 
   # GET /playlists/1
   # GET /playlists/1.json
   def show
     @playlist = Playlist.find(params[:id])
-
+    @tunes = @playlist.tunes.where(:user_id => (current_user.followees(User).push(current_user))).order('created_at DESC')
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @playlist }

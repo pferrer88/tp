@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.tokeninput
 //= require jquery.pjax
 //= require_tree .
 

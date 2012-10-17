@@ -6,10 +6,12 @@
 		= f.association :artist, :as => :hidden
 		= f.association :album, :as => :hidden
 		= f.input :remote_id, :as => :hidden
-		= f.input :name#, :as => :hidden
 		= f.input :description, :as => :hidden
 		= f.input :year, :as => :hidden
 		= f.input :time, :as => :hidden
+		
+		= f.input :name
+		= f.input :playlist_tokens, data: {load: @tune.playlists}
 
 	.modal-footer
 		= f.button :submit, "Post"

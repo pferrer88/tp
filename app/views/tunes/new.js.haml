@@ -1,0 +1,11 @@
+- @name = "Post Your Tune"
+:plain
+	$("#le_modal").modal("show");
+	$("#le_modal .modal-header h3").html("#{@name}");
+	$("#le_modal .modal-body").html("#{escape_javascript render 'form'}");
+	
+	$('#tune_playlist_tokens').tokenInput('/playlists.json',{
+		theme: 'facebook',
+		prePopulate: $('#tune_playlist_tokens').data('load'),
+		zindex: 11001
+		});

@@ -1,7 +1,6 @@
 class TunesController < ApplicationController
   require 'soundcloud'
-  
-  
+
   # GET /tunes
   # GET /tunes.json
   def index
@@ -28,10 +27,14 @@ class TunesController < ApplicationController
   # GET /tunes/new.json
   def new
     @tune = Tune.new
-
+    @tune.name = params[:title] if params[:title]
+    @tune.remote_id = params[:uri] if params[:uri]
+    @tune.description = params[:genre] if params[:genre]
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @tune }
+      format.js
     end
   end
 
