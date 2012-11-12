@@ -12,4 +12,17 @@ class Tune < ActiveRecord::Base
   def playlist_tokens=(tokens)
     self.playlist_ids = Playlist.ids_from_tokens(tokens)
   end
+  
+  def remote_url
+    client = Soundcloud.new(:client_id => 'f2334dc770efb325207e4eb621703422')
+    t = client.get('/tracks', :id => remote_id)
+    t.first.stream_url
+  end
+  
+  def link
+    client = Soundcloud.new(:client_id => 'f2334dc770efb325207e4eb621703422')
+    t = client.get('/tracks', :id => remote_id)
+    t.first.permalink_url
+  end
+  
 end

@@ -1,0 +1,4 @@
+/ - @name = "Post Your Tune"
+:plain
+	$("#le_modal").modal("hide");
+	$("#belly").html("#{escape_javascript render :template => 'users/index.html'}");

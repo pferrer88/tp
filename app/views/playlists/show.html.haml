@@ -1,8 +1,9 @@
-%h2= @playlist.name
-%hr
-%table
-	= render @tunes
+%h3= @playlist.name
+%table.table.table-hover
+	%tbody
+		= render @tunes
 
+/ %ol#playlist
 
 / %p#notice= notice
 / 

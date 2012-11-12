@@ -14,19 +14,70 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.tokeninput
-//= require jquery.pjax
+//= require soundmanager
+// = require sc-player
+// = require sc-player-waveform
 //= require_tree .
 
 jQuery(function($) {
 	
-	$('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('[data-pjax-container]');
 	
-  var showLoading = function() { $("#sc_btn").button('loading') };
-	var removeLoading = function() { $("#sc_btn").button('reset') };
+	var pReady = function() { 
+		console.log("PLAYER READY onready"); 
+	};
+	
+	
+	soundManager.setup({
+	  url: window.soundManager.url,
+	  onready: pReady,
+	  ontimeout: function() {
+	    console.log("Soundmanager NOT LOADED!");
+	  }
+	});
+	
+	$controls = $(".controls");
 
+	$controls.on("click", 'div', function(e){
+		e.preventDefault();
+		var $this = $(this)
+		if( $this.hasClass('play') ){ 
+			playtune.togglePause() ;
+			$this.addClass("pause");
+		}
+		else if( $this.hasClass('pause') ){ 
+			if (playtune.paused == true ){
+				playtune.togglePause();
+				$this.removeClass("pause");
+				$this.addClass("play");
+			}
+		}
+		else if( $this.hasClass('stop') ){ playtune.stop(); }
+		else if( $this.hasClass('next') ){ playtune.next(); }
+		else if( $this.hasClass('prev') ){ playtune.prev(); }
+		
+	});
+
+	hidePlayer = function() {
+		 $("#daplayer").slideUp();
+		 $("body").animate({"padding-top" : 0 }, "slow");
+		 $("#player_show").fadeIn("slow");
+	};
+	
+	showPlayer = function() {
+		 $("#daplayer").slideDown();
+		 $("body").animate({"padding-top" : 75 }, "slow");
+		 $("#player_show").fadeOut("slow");
+	};
+	
+	// $('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])').pjax('[data-pjax-container]');
+	
+  showLoading = function() { $("#sc_btn").button('loading') };
+	removeLoading = function() { $("#sc_btn").button('reset') };
+	
+	$("#player_show").click(showPlayer);	
+	$("#player_hide").click(hidePlayer);
 	$("#sc_btn").click(showLoading);
 	
-	console.log("hello console");
 	//   $("#sc_search")
 	//     .bind("ajax:loading",  showLoading)
 	//     .bind("ajax:complete", removeLoading);
@@ -35,8 +86,4 @@ jQuery(function($) {
 	//     });
 });
 
-// function set_tune_vars()
-// {
-// 	alert("HELLO FUCKER");
-// }
 

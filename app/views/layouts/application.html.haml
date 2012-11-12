@@ -4,7 +4,7 @@
 		%meta{:charset => "utf-8"}
 		%meta{:content => "width=device-width, initial-scale=1.0, user-scalable=no", :name => "viewport"}
 		%meta{:content => "yes", :name => "apple-mobile-web-app-capable"}
-		%meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}
+		/ %meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}
 		%title= content_for?(:title) ? yield(:title) : "Tunepost"
 		%meta{:content => "", :name => "description"}
 		%meta{:content => "", :name => "author"}
@@ -13,21 +13,35 @@
 		= csrf_meta_tags
 		= yield(:head)
 	%body
-		#logo.well
+		/ #logo.well
+		= render "layouts/player"
 		#main{:role => "main"}
 			.container-fluid
 				.content
 					.row-fluid
-						.span12{"data-pjax-container"=>true}
-							= render 'layouts/messages'
-							= yield
+						#belly.span12
+							#player_show.pull-right.hide.btn-mini.btn-inverse{:style=>""}
+								%i.icon-arrow-down
+							/ = render 'layouts/messages'
+							.tab-content
+								#home.tab-pane.active
+									= yield
+								#search.tab-pane
+									= render :template => 'tunes/new.html'
+								#users.tab-pane
+
+								#settings.tab-pane
+								
+								#playlist.tab-pane
+							
+
 					%footer
+			/ ! end of .container
+		/ ! end of #main
 		.navbar.navbar-fixed-bottom
 			%nav.navbar-inner
 				.container-fluid
 					= render 'layouts/navigation'
-			/ ! end of .container
-		/ ! end of #main
 		#le_modal.modal.hide.fade
 			.modal-header
 				%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×

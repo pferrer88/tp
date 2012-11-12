@@ -10,8 +10,8 @@
 		= f.input :year, :as => :hidden
 		= f.input :time, :as => :hidden
 		
-		= f.input :name
-		= f.input :playlist_tokens, data: {load: @tune.playlists}
+		= f.input :name, :label => "Song Title"
+		= f.input :playlist_tokens, data: {load: @tune.playlists},:input_html => {:size => 10}, :label => "Add to Playlists"
 
 	.modal-footer
 		= f.button :submit, "Post"

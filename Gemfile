@@ -26,3 +26,4 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "socialization"
 gem "soundcloud"
 gem 'pjax_rails'
+gem 'soundmanager-rails'

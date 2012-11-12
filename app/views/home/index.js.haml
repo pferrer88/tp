@@ -1,0 +1,5 @@
+/ - @name = "Post Your Tune"
+:plain
+	$("#le_modal").modal("hide");
+	$("#home").html("#{escape_javascript render :template => 'home/index.html'}");
+	$('#tabnav li:eq(0) a').tab('show');

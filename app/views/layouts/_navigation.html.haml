@@ -1,37 +1,59 @@
-%ul.nav
+%ul.nav#tabnav{:style=> "margin-left: auto; margin-right: auto; float:none; width: 75%;"}
+	%li.divider-vertical
 	%li
-		= link_to root_path, :class => "brand", :title => "Home" do
+		= link_to root_path, :title => "Home", :remote => true, "data-toggle" => "tab", "data-target" => "#home" do
 			%i.icon-large.icon-home
+
 	%li.divider-vertical
 	%li
-		= link_to new_tune_path, :title => "Post a tune" do
+		%a{"data-toggle" => "tab", :href => "#search"}
 			%i.icon-large.icon-music
-	/ %li.divider-vertical
-	/ %li
-	/		= link_to root_path, :title => "Home" do
-	/			%i.icon-large.icon-star
-	/ %li.divider-vertical
-	/ %li
-	/		= link_to root_path, :title => "Home" do
-	/			%i.icon-large.icon-heart
 	%li.divider-vertical
-	%li.dropdown		
-		%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-			%i.icon-large.icon-cog
-		%ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
-			- if user_signed_in?
-				%li
-					= link_to('Logout', destroy_user_session_path, :method=>:delete)
-			- else
-				%li
-					= link_to 'Login', new_user_session_path
-			- if user_signed_in?
-				%li
-					= link_to 'Edit account', edit_user_registration_path
-				/ - if current_user.has_role? :admin
-				%li
-					= link_to 'Users', users_path
-			- else
-				%li
-					= link_to 'Sign up', new_user_registration_path
+	%li
+		%a{"data-toggle" => "tab", :href => "#users"}
+			%i.icon-large.icon-user
 	%li.divider-vertical
+	/ %li
+	/ 	%a{"data-toggle" => "tab", :href => "#settings"}
+	/ 		%i.icon-large.icon-cog
+	/ %li.divider-vertical
+
+
+
+/ %ul.nav.nav-tabs
+/ 	%li
+/ 		= link_to root_path, :class => "brand", :title => "Home", :remote => true do
+/ 			%i.icon-large.icon-home
+/ 	%li.divider-vertical
+/ 	%li
+/ 		= link_to new_tune_path, :title => "Post a tune" do
+/ 			%i.icon-large.icon-music
+/ 	/ %li.divider-vertical
+/ 	/ %li
+/ 	/		= link_to root_path, :title => "Home" do
+/ 	/			%i.icon-large.icon-star
+/ 	/ %li.divider-vertical
+/ 	/ %li
+/ 	/		= link_to root_path, :title => "Home" do
+/ 	/			%i.icon-large.icon-heart
+/ 	%li.divider-vertical
+/ 	%li.dropdown		
+/ 		%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+/ 			%i.icon-large.icon-cog
+/ 		%ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+/ 			- if user_signed_in?
+/ 				%li
+/ 					= link_to('Logout', destroy_user_session_path, :method=>:delete)
+/ 			- else
+/ 				%li
+/ 					= link_to 'Login', new_user_session_path
+/ 			- if user_signed_in?
+/ 				%li
+/ 					= link_to 'Edit account', edit_user_registration_path
+/ 				/ - if current_user.has_role? :admin
+/ 				%li
+/ 					= link_to 'Users', users_path, :remote => true 
+/ 			- else
+/ 				%li
+/ 					= link_to 'Sign up', new_user_registration_path
+/ 	%li.divider-vertical

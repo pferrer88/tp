@@ -19,6 +19,7 @@ class PlaylistsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @playlist }
+      format.js
     end
   end
 

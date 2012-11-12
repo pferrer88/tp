@@ -1,9 +1,9 @@
-%h2 Search
-%hr
-= form_tag '/sc' ,:id => "sc_search",:method => :get, :remote => true do
-	.input-append
-		= search_field_tag 'q', nil, :placeholder => 'Search Soundcloud...'
-		= submit_tag "Search", :class => "btn", :id => "sc_btn" ,"data-loading-text" => "Loading..."
+%br
+.well.well-small{:style => "margin-left: auto;	width: 300px;	margin-right: auto;"}
+	= form_tag '/sc' ,:id => "sc_search",:method => :get, :remote => true do
+		.input-append
+			= search_field_tag 'q', nil, :placeholder => 'Search Soundcloud...'
+			= submit_tag "Search", :class => "btn", :id => "sc_btn" ,"data-loading-text" => "Loading..."
 
 #form	
 

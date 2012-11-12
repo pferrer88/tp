@@ -1,0 +1,6 @@
+- @tune = @tunes.first
+
+:plain
+	$("#le_modal").modal("hide");
+	$("#home").html("#{escape_javascript render :template => 'playlists/show.html'}");
+	$('#tabnav li:eq(0) a').tab('show');

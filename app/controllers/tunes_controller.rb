@@ -5,7 +5,6 @@ class TunesController < ApplicationController
   # GET /tunes.json
   def index
     @tunes = Tune.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tunes }
@@ -16,10 +15,11 @@ class TunesController < ApplicationController
   # GET /tunes/1.json
   def show
     @tune = Tune.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @tune }
+      format.js
     end
   end
 

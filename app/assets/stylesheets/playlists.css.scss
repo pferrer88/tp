@@ -1,3 +1,49 @@
 // Place all the styles related to the Playlists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*#player, #waveform, #playlist { width: 500px; }*/
+
+#player { position: relative; }
+	#player .controls {}
+		#player .controls div {
+			display: inline-block;
+			padding: 5px;
+			margin: 0px 1px;
+			text-align: center;
+			width: 16px;
+			height: 16px;
+			line-height: 16px;
+			color: white;
+			opacity: 0.75;
+			cursor: pointer;
+			background: no-repeat center center;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-ms-background-size: cover;
+			background-size: cover;
+			border: 1px solid black;
+		}
+		#player .controls div:hover {
+			opacity: 1;
+			background-color: #F18900;
+		}
+		#player .controls .play { background-image: url("/assets/play.svg"); }
+		#player .controls .pause { background-image: url("/assets/pause.svg"); }
+		#player .controls .stop { background-image: url("/assets/stop.svg"); }
+		#player .controls .next { background-image: url("/assets/next.svg"); }
+		#player .controls .prev { background-image: url("/assets/prev.svg"); }
+
+#waveform {
+	width: 95%;
+	height: 5px;
+	position: relative;
+}
+	#waveform .buffer, #waveform .played, #waveform > img { position:absolute; width: 0%; height:100%; }
+	#waveform .buffer { background-color: hsla(180, 20%, 60%, .4);}
+	#waveform .played { background-color: hsla(260, 20%, 60%, .4);}
+	#waveform > img {  width: 100%; }
+
+#playlist {}
+	#playlist .active { font-weight: bold; }

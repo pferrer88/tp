@@ -1,11 +1,12 @@
 @import "twitter/bootstrap/bootstrap";
 body {
 	padding-bottom: 60px;
-	background-color: darken(white, 2%);
+	padding-top: 0px;
+	background-color: darken(white, 4%);
 /*	color: white;*/
 }
 
-@import "twitter/bootstrap/responsive";
+/*@import "twitter/bootstrap/responsive";*/
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -44,8 +45,46 @@ body {
 
 /*@baseFontSize: 12px;*/
 
+#daplayer{
+	background-color: darken(white, "0");
+	background-image: none;
+	position: fixed;
+	min-height: 40px;
+	width: 100%;
+	top: 0px;
+	-webkit-box-shadow:  0px 2px 5px 1px rgba(0, 0, 0, .45);
+	box-shadow:  0px 2px 5px 1px rgba(0, 0, 0, .45);
+	padding: 10px;
+	padding-top: 20px;
+	border-top: 10px;
+	border-top-color: #4F4F8B;
+	border-top-style: solid;
+	
+	#cs_title{
+		position: absolute;
+		top: 25px;
+		left: 147px;
+	}
+}
+
+/*#belly{
+	padding-top: 20px;
+
+}*/
+
+.modal{
+	width: 80%;
+	margin: -40% 0 0 -40%;
+}
+ul.token-input-list-facebook {
+	width: 220px;
+}
+
 .container {
 	margin-left: 10px;
+}
+.container-fluid{
+	padding:0px;
 }
 
 .navbar{
@@ -104,39 +143,14 @@ body {
 }
 
 
-
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 979px) { 
-	body {
-		padding-top: 10px;
-	}
-	.container-fluid {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-	.navbar-inner .container-fluid{
-		padding-left: 0px;
-		padding-left: 0px;
-	}
-
-	.navbar-fixed-bottom{
-		position: fixed;
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-
-	
+.icon-white,
+.nav > .active > a > [class^="icon-"],
+.nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"] {
+  background-image: none;
 }
 
-@media (max-width: 767px) { 
-	.modal.fade.in{
-		top: 10%;
-	}
-	
-	body {
-	padding-left: 0px;
-	padding-right: 0px;
-	}
 
-}

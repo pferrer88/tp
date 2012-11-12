@@ -1,0 +1,50 @@
+:plain
+	showPlayer();
+	$("#cs_title").html("#{@tune.name}")
+	if(typeof playtune != 'undefined'){
+		playtune.destruct();
+	}
+	
+	playtune = soundManager.createSound({
+	      id: "#{@tune.name}",
+	      url: "#{@tune.remote_id}/stream?client_id=f2334dc770efb325207e4eb621703422",
+				autoLoad: true
+			, multiShot: false
+			, loops: 1
+			, whileloading: function() {
+				//only whole number percents
+				var percent = Math.round(this.bytesLoaded / this.bytesTotal * 100);
+				$(".buffer").css('width', percent + '%');
+				// _this.trigger('scplayer.track.whileloading', percent);
+			}
+			, whileplaying: function() {
+				//round to nearest 10th of a percent for performance
+				var percent = Math.round(this.position / this.duration * 100 * 10) / 10;
+				$(".played").css('width', percent + '%');
+				// _this.trigger('scplayer.track.whileplaying', percent);
+			}
+			, onplay: function() {
+				// _this.trigger('scplayer.track.played');
+			}
+			, onresume: function() {
+				// _this.trigger('scplayer.track.resumed');
+			}
+			, onstop: function() {
+				// _this.trigger('scplayer.track.stopped');	
+			}
+			, onpause: function() {
+				// _this.trigger('scplayer.track.paused');
+			}
+			, onfinish: function() { 
+				// _this.trigger('scplayer.track.finished');
+			}
+			, onload: function() {
+				// _this.log('onload');
+				// _this.trigger('scplayer.track.ready', _this.current_track_index, _this.current_track);
+			}
+		});
+
+	playtune.play();
+	$("tr.info").removeClass("info");
+	$("##{@tune.id}").addClass("info");
+	$(".pause").removeClass("pause").addClass("play");
