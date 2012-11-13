@@ -14,25 +14,26 @@
 		= yield(:head)
 	%body
 		/ #logo.well
-		= render "layouts/player"
+		/ = render "layouts/player"
 		#main{:role => "main"}
 			.container-fluid
 				.content
 					.row-fluid
 						#belly.span12
-							#player_show.pull-right.hide.btn-mini.btn-inverse{:style=>""}
-								%i.icon-arrow-down
 							/ = render 'layouts/messages'
 							.tab-content
 								#home.tab-pane.active
 									= yield
+								#radio.tab-pane
+									#player_show.pull-right.hide.btn-mini.btn-inverse{:style=>""}
+										%i.icon-arrow-down
+									= render "layouts/player"
 								#search.tab-pane
 									= render :template => 'tunes/new.html'
-								#users.tab-pane
-
-								#settings.tab-pane
 								
-								#playlist.tab-pane
+								#recommendations.tab-pane
+								
+								#profile.tab-pane
 							
 
 					%footer

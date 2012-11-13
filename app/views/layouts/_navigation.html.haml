@@ -1,24 +1,27 @@
-%ul.nav#tabnav{:style=> "margin-left: auto; margin-right: auto; float:none; width: 75%;"}
+%ul.nav#tabnav
+	/ {:style=> "margin-left: auto; margin-right: auto; float:none; width: 75%;"}
 	%li.divider-vertical
 	%li
-		= link_to root_path, :title => "Home", :remote => true, "data-toggle" => "tab", "data-target" => "#home" do
+		/ = link_to root_path, :title => "Home", :remote => true, "data-toggle" => "tab", "data-target" => "#home" do
+		%a{"data-toggle" => "tab", :href => "#home"}
 			%i.icon-large.icon-home
-
 	%li.divider-vertical
 	%li
 		%a{"data-toggle" => "tab", :href => "#search"}
+			%i.icon-large.icon-search
+	%li.divider-vertical
+	%li
+		%a{"data-toggle" => "tab", :href => "#radio"}
 			%i.icon-large.icon-music
 	%li.divider-vertical
 	%li
-		%a{"data-toggle" => "tab", :href => "#users"}
+		%a{"data-toggle" => "tab", :href => "#recommendations"}
+			%i.icon-large.icon-heart
+	%li.divider-vertical
+	%li
+		%a{"data-toggle" => "tab", :href => "#profile"}
 			%i.icon-large.icon-user
 	%li.divider-vertical
-	/ %li
-	/ 	%a{"data-toggle" => "tab", :href => "#settings"}
-	/ 		%i.icon-large.icon-cog
-	/ %li.divider-vertical
-
-
 
 / %ul.nav.nav-tabs
 / 	%li

@@ -15,8 +15,6 @@
 //= require twitter/bootstrap
 //= require jquery.tokeninput
 //= require soundmanager
-// = require sc-player
-// = require sc-player-waveform
 //= require_tree .
 
 jQuery(function($) {
@@ -59,13 +57,13 @@ jQuery(function($) {
 
 	hidePlayer = function() {
 		 $("#daplayer").slideUp();
-		 $("body").animate({"padding-top" : 0 }, "slow");
+		 // $("body").animate({"padding-top" : 0 }, "slow");
 		 $("#player_show").fadeIn("slow");
 	};
 	
 	showPlayer = function() {
 		 $("#daplayer").slideDown();
-		 $("body").animate({"padding-top" : 75 }, "slow");
+		 // $("body").animate({"padding-top" : 75 }, "slow");
 		 $("#player_show").fadeOut("slow");
 	};
 	
